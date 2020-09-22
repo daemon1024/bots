@@ -151,8 +151,9 @@ func main() {
 	u.Timeout = 60
 	updates, _ := bot.GetUpdatesChan(u)
 	// Set client options
-	clientOptions := options.Client().ApplyURI("mongodb://localhost:27017")
-
+	clientOptions := options.Client().ApplyURI(
+		"mongodb+srv://" + os.Getenv("MONGODB_CREDS") + "@cluster0.cd44g.mongodb.net/osdc?retryWrites=true&w=majority",
+	  )
 	// Connect to MongoDB
 	client, err := mongo.Connect(context.TODO(), clientOptions)
 

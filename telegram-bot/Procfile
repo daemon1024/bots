@@ -1,1 +1,1 @@
-worker: osdc-bots 
+worker: bin/telegram-bot
